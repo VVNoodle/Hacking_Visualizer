@@ -1,0 +1,2 @@
+docker build -t jupyter/pyspark .
+docker run -it -p 8888:8888 jupyter/pyspark
