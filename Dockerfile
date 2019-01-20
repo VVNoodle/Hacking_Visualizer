@@ -1,6 +1,16 @@
 FROM jupyter/pyspark-notebook
 ENV PYTHONUNBUFFERED 1
 
-ADD . ./
+USER root
 
-ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0"]
+COPY requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . ./
+
+RUN mkdir /code
+copy /code /code
+
+
+ENTRYPOINT ["jupyter"]
+CMD ["notebook", "--ip=0.0.0.0","--allow-root"]
