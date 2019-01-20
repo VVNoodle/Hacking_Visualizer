@@ -8,6 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . ./
 
+COPY ./spark_jdbc/ $SPARK_HOME/jars/
+
 RUN mkdir /code
 copy /code /code
 

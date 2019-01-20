@@ -8,3 +8,5 @@ services:
       - .:/home/jovyan/
     ports:
       - "8888:8888"
+    environment:
+      - SPARK_CLASSPATH=/home/jovyan/spark_jdbc/spark_jdbc.jar
